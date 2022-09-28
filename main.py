@@ -20,8 +20,8 @@ class Character():
         return randint(0,100)+randint(0,enemyskill)<=s.agility
 
     def defend(s,dmg):
-        s.health -= dmg*(1-s.defense/100)
-        return dmg*(1-s.defense/100)
+        s.health -= round(dmg*(1-s.defense/100))
+        return round(dmg*(1-s.defense/100))
 
     def isdead(s):
         return s.health <= 0

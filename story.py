@@ -1,7 +1,7 @@
 import sys
 from time import sleep
 import inquirer
-
+import main
 def typewriter(text):
     for char in text:
         sleep(0.05)
@@ -16,15 +16,15 @@ classSelect = [
     ),
 ]
 
-typewriter
+answers = inquirer.prompt(classSelect)
+
+selectedClass = answers["class"]
+
+player = main.Character(selectedClass)
+
+print(player.luck)
 
 
 
-
-
-
-answers = inquirer.prompt(questions)
-
-print(answers)
 
 typewriter("U wake up, the abando")

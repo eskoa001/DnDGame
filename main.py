@@ -1,14 +1,14 @@
 from random import randint
 
 class Character():
-    hp = {'d': 100, 'h':500, 'g': 2000} # any range
-    ag = {'d': 80, 'h':40, 'g': 10} # [0,100)
-    df = {'d': 70, 'h':30, 'g': 20} # [0,100)
-    sk = {'d': 70, 'h':60, 'g': 10} # [0,100)
-    sr = {'d': 30, 'h':60, 'g': 60} # any range
-    lk = {'d': 80, 'h':30, 'g': 5} # [0,100)
+    hp = {"Dwarf": 100, "Human":500, "Giant": 2000} # any range
+    ag = {"Dwarf": 80, "Human":40, "Giant": 10} # [0,100)
+    df = {"Dwarf": 70, "Human":30, "Giant": 20} # [0,100)
+    sk = {"Dwarf": 70, "Human":60, "Giant": 10} # [0,100)
+    sr = {"Dwarf": 30, "Human":60, "Giant": 60} # any range
+    lk = {"Dwarf": 80, "Human":30, "Giant": 5} # [0,100)
 
-    def __init__(s,species:chr,):
+    def __init__(s,species:str,):
         s.health = Character.hp[species] 
         s.agility = Character.ag[species]  # lower chance of getting hit
         s.defense = Character.df[species]  # getting less critical hit
@@ -31,17 +31,3 @@ class Character():
             return 0
         else:
             return enemy.defend(s.strength+s.strength*randint(0,s.luck)/10)
-
-a = Character("g")
-b = Character("d")
-for i in range(20):
-    print(b.attack(a))
-    if(a.isdead()):
-        print("ohno")
-        break
-    print(a.attack(b))
-    if(b.isdead()):
-        print("OHNO")
-        break
-
-    

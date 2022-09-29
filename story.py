@@ -30,8 +30,6 @@ typewriter("The circumsatances makes u think of existencial questions...")
 
 player = main.Character(inquirer.prompt(classSelect)["class"])
 
-print(player.luck)
-
 typewriter("as you ponder on the mysteries of life, someone interupts you")
 typewriter("Soldier: Hey you! What are you doing out here in these dangerous lands?")
 
@@ -43,16 +41,28 @@ if(mission!="In the forrest to slay the beast"):
 
 typewriter("Soldier: Ahhh, so you are going in the forrest to slay the beast, good luck my dear friend, but be careful of the branches that may fall on your head. I've heard it from Vemund, a grave soldier that fell in battle long ago")
 
-typewriter("*imagine pokeman music playing in the background*")
+print("\n")
+print("*imagine pokeman music playing in the background*")
 typewriter("*A wild Giant appears!!!")
+print("\n")
 
 enemy = main.Character("Giant")
 
 while enemy.health > 0 and player.health > 0:
     attack = enemy.attack(player)
+    print("The enemy attacks:")
     if(attack > 0):
-        typewriter(f"the enemy hit you for {attack} damage")
-        typewriter(f"You now have {player.health} left")
+        typewriter(f"The enemy hit you for {attack} damage")
+        typewriter(f"You now have {player.health} health left")
     else: 
         typewriter("Master ninja, you dodged the attack")
-    print('e',player.attack(enemy))
+    attack = player.attack(enemy)
+    print("\n")
+    print("You strike back:")
+    if(attack > 0):
+        typewriter(f"You hit the enemy for {attack} damage")
+        typewriter(f"The enemy now has {enemy.health} health left")
+    else: 
+        typewriter("Too slow! That attack didn't hit at all!")
+    print("\n")
+   

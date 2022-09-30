@@ -24,6 +24,14 @@ mission = [
     ),
 ]
 
+fight = [
+    inquirer.List(
+        "fight",
+        message="would you like to fight for the hanour of choosing your own name?",
+        choices=["Yes", "No"],
+    ),
+]
+
 
 typewriter("U wake up, watching the night sky float above u")
 typewriter("The circumstances makes u think of existencial questions...")
@@ -36,7 +44,7 @@ typewriter("Soldier: Hey you! What are you doing out here in these dangerous lan
 mission = inquirer.prompt(mission)["mission"]
 
 if(mission!="In the forrest to slay the beast"):
-    typewriter("as we the devs, creator of this world, that means you. Didn't have enough time to create more scenarios...")
+    typewriter("I wouldn't advise soing that, you know what...")
     typewriter("I will personally take the creative freedom to choose for you")
 
 typewriter("Soldier: Ahhh, so you are going in the forrest to slay the beast, good luck my dear friend, but be careful of the branches that may fall on your head. I've heard it from Vemund, a grave soldier that fell in battle long ago")
@@ -48,6 +56,7 @@ print("\n")
 
 enemy = main.Character("Giant")
 
+
 while enemy.health > 0 and player.health > 0:
     print("The enemy attacks:")
     guess = int(input("Guess his number between 0 and 100 to dodge: \n"))
@@ -58,7 +67,8 @@ while enemy.health > 0 and player.health > 0:
     else: 
         typewriter("Master ninja, you dodged the attack")
     if player.isdead():
-        typewriter("eskil skriver inn noe her")
+        print("\n")
+        typewriter("All great travels must end somehwere... this is the end for yours")
         break
     attack = player.attack(enemy)
     print("\n")
@@ -69,6 +79,10 @@ while enemy.health > 0 and player.health > 0:
     else: 
         typewriter("Too slow! That attack didn't hit at all!")
     if(enemy.isdead()):
-        typewriter("eksil skriver inn noe her også")
+        print("\n")
+        typewriter("With a sharp blow from your weapon, th eenemy is slain before you.")
     print("\n")
-   
+
+
+typewriter(f"Strager: that was great battle {player.name}")
+answer = inquirer.prompt(fight)["mission"]

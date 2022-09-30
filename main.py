@@ -7,6 +7,7 @@ class Character():
     sk = {"Dwarf": 70, "Human":60, "Giant": 10} # [0,100)
     sr = {"Dwarf": 30, "Human":60, "Giant": 60} # any range
     lk = {"Dwarf": 70, "Human":30, "Giant": 5} # [0,100)
+    nm = {"Dwarf": "Bob the dwarf", "Human": "Ben Dover", "Giant": "Hugh Mongous"}
 
     def __init__(s,species:str,):
         s.health = Character.hp[species] 
@@ -15,6 +16,7 @@ class Character():
         s.skill = Character.sk[species]  # higher chance of giving hit
         s.strength = Character.sr[species]  # giving more crital hit
         s.luck = Character.lk[species]  # multiplier
+        s.name = Character.nm[species] #birth given name
 
     def dodge(s,enemyskill,guess=randint(0,100)):
         return abs(randint(0,100)+randint(0,enemyskill) - guess) <= randint(0,s.agility)

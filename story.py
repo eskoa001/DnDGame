@@ -26,7 +26,7 @@ mission = [
 
 
 typewriter("U wake up, watching the night sky float above u")
-typewriter("The circumsatances makes u think of existencial questions...")
+typewriter("The circumstances makes u think of existencial questions...")
 
 player = main.Character(inquirer.prompt(classSelect)["class"])
 
@@ -42,21 +42,22 @@ if(mission!="In the forrest to slay the beast"):
 typewriter("Soldier: Ahhh, so you are going in the forrest to slay the beast, good luck my dear friend, but be careful of the branches that may fall on your head. I've heard it from Vemund, a grave soldier that fell in battle long ago")
 
 print("\n")
-print("*imagine pokeman music playing in the background*")
+print("*imagine pokemon music playing in the background*")
 typewriter("*A wild Giant appears!!!")
 print("\n")
 
 enemy = main.Character("Giant")
 
 while enemy.health > 0 and player.health > 0:
-    attack = enemy.attack(player)
     print("The enemy attacks:")
+    guess = int(input("Guess his number between 0 and 100 to dodge: \n"))
+    attack = enemy.attack(player,guess)
     if(attack > 0):
         typewriter(f"The enemy hit you for {attack} damage")
         typewriter(f"You now have {player.health} health left")
     else: 
         typewriter("Master ninja, you dodged the attack")
-    if enemy.isdead():
+    if player.isdead():
         typewriter("eskil skriver inn noe her")
         break
     attack = player.attack(enemy)
@@ -67,7 +68,7 @@ while enemy.health > 0 and player.health > 0:
         typewriter(f"The enemy now has {enemy.health} health left")
     else: 
         typewriter("Too slow! That attack didn't hit at all!")
-    if(player.isdead()):
+    if(enemy.isdead()):
         typewriter("eksil skriver inn noe her også")
     print("\n")
    

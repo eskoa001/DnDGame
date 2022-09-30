@@ -56,6 +56,9 @@ while enemy.health > 0 and player.health > 0:
         typewriter(f"You now have {player.health} health left")
     else: 
         typewriter("Master ninja, you dodged the attack")
+    if enemy.isdead():
+        typewriter("eskil skriver inn noe her")
+        break
     attack = player.attack(enemy)
     print("\n")
     print("You strike back:")
@@ -64,5 +67,7 @@ while enemy.health > 0 and player.health > 0:
         typewriter(f"The enemy now has {enemy.health} health left")
     else: 
         typewriter("Too slow! That attack didn't hit at all!")
+    if(player.isdead()):
+        typewriter("eksil skriver inn noe her også")
     print("\n")
    

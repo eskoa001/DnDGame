@@ -16,7 +16,7 @@ class Character():
         s.strength = Character.sr[species]  # giving more crital hit
         s.luck = Character.lk[species]  # multiplier
 
-    def dodge(s,enemyskill,guess=randint(0,100)):
+    def dodge(s,enemyskill,guess):
         return abs(randint(0,100)+randint(0,enemyskill) - guess) <= randint(0,s.agility)
 
     def defend(s,dmg):
@@ -27,8 +27,8 @@ class Character():
     def isdead(s):
         return s.health <= 0
 
-    def attack(s,enemy):
-        if(enemy.dodge(s.luck)):
+    def attack(s,enemy,guess=randint(0,100)):
+        if(enemy.dodge(s.luck,guess)):
             return 0
         else:
             return enemy.defend(s.strength+s.strength*randint(0,s.luck)/10)

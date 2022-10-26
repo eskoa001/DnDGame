@@ -85,4 +85,43 @@ while enemy.health > 0 and player.health > 0:
 
 
 typewriter(f"Strager: that was great battle {player.name}")
-answer = inquirer.prompt(fight)["mission"]
+answer = inquirer.prompt(fight)["fight"]
+
+if(answer == "Yes"):
+    typewriter(f"You are now fighting for the right to choose your own name!!")
+    typewriter(f"While going up against the evil name calling man, you notice something on the ground")
+    typewriter(f"Woooow (insert emotion), is that the super op, health and attack boosting swooord!")
+    typewriter(f"You pick it up, and notices that your health and attack power improve")
+    player.health += 250
+    player.strength += 25
+    enemy = main.Character("Human")
+
+    while enemy.health > 0 and player.health > 0:
+        print("The enemy attacks:")
+        guess = int(input("Guess his number between 0 and 100 to dodge: \n"))
+        attack = enemy.attack(player,guess)
+        if(attack > 0):
+            typewriter(f"The enemy hit you for {attack} damage")
+            typewriter(f"You now have {player.health} health left")
+        else: 
+            typewriter("Master ninja, you dodged the attack")
+        if player.isdead():
+            print("\n")
+            typewriter("All great travels must end somehwere... this is the end for yours")
+            break
+        attack = player.attack(enemy)
+        print("\n")
+        print("You strike back:")
+        if(attack > 0):
+            typewriter(f"You hit the enemy for {attack} damage")
+            typewriter(f"The enemy now has {enemy.health} health left")
+        else: 
+            typewriter("Too slow! That attack didn't hit at all!")
+        if(enemy.isdead()):
+            print("\n")
+            typewriter("With a sharp blow from your weapon, the enemy is slain before you.")
+            typewriter("You may now choose your name...")
+            typewriter("In the next edition of this game given that I add that feature")
+        print("\n")
+else: 
+      typewriter(f"Wooow, you're suuch a coward {player.name}") 

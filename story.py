@@ -80,7 +80,7 @@ while enemy.health > 0 and player.health > 0:
         typewriter("Too slow! That attack didn't hit at all!")
     if(enemy.isdead()):
         print("\n")
-        typewriter("With a sharp blow from your weapon, th eenemy is slain before you.")
+        typewriter("With a sharp blow from your weapon, the enemy is slain before you.")
     print("\n")
 
 
